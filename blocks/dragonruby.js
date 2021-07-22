@@ -12,6 +12,14 @@ Blockly.defineBlocksWithJsonArray([  // BEGIN JSON EXTRACT
   "helpUrl": ""
 },
 {
+  "type": "gtk_current_framerate",
+  "message0": "Frames Per Second",
+  "output": "Number",
+  "colour": 0,
+  "tooltip": "Returns current framerate (FPS) as float.",
+  "helpUrl": ""
+},
+{
   "type": "gtk_tick_count",
   "message0": "Tick Count",
   "output": "Number",

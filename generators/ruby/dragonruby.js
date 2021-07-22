@@ -1,6 +1,10 @@
-// Runtime  
+// Runtime
 Blockly.Ruby.gtk_state = function(block) {
   return ["$state", Blockly.Ruby.ORDER_ATOMIC];
+};
+
+Blockly.Ruby.gtk_current_framerate = function(block) {
+  return ["$gtk.current_framerate", Blockly.Ruby.ORDER_ATOMIC];
 };
 
 Blockly.Ruby.gtk_tick_count = function(block) {
