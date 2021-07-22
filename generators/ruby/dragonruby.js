@@ -722,17 +722,17 @@ Blockly.Ruby.geometry_cubic_bezier = function(block) {
 // Touch
 Blockly.Ruby.touch_finger_down = function(block) {
   var fingkey = block.getFieldValue('finger');  
-  return ["!$gtk.args.inputs.touch." + fingkey + ".nil?", Blockly.Ruby.ORDER_ATOMIC];
+  return ["!$gtk.args.inputs." + fingkey + ".nil?", Blockly.Ruby.ORDER_ATOMIC];
 };
 
 Blockly.Ruby.touch_finger_x = function(block) {
   var fingkey = block.getFieldValue('finger');
-  return ["$gtk.args.inputs.touch." + fingkey + ".x", Blockly.Ruby.ORDER_ATOMIC];
+  return ["$gtk.args.inputs." + fingkey + ".x", Blockly.Ruby.ORDER_ATOMIC];
 };
 
 Blockly.Ruby.touch_finger_y = function(block) {
   var fingkey = block.getFieldValue('finger');
-  return ["$gtk.args.inputs.touch." + fingkey + ".y", Blockly.Ruby.ORDER_ATOMIC];
+  return ["$gtk.args.inputs." + fingkey + ".y", Blockly.Ruby.ORDER_ATOMIC];
 };
 
 Blockly.Ruby.touch_foreach_touches = function(block) {
