@@ -41,9 +41,9 @@ Blockly.Ruby['lists_indexOf'] = function(block) {
   var list = Blockly.Ruby.valueToCode(block, 'VALUE',
       Blockly.Ruby.ORDER_NONE) || '[]';
   if (block.getFieldValue('END') == 'FIRST') {
-    return [list + ".index(" + item + ")", Blockly.Ruby.ORDER_HIGH];
+    return [list + ".index(" + item + ").to_i", Blockly.Ruby.ORDER_HIGH];
   } else {
-    return [list + ".rindex(" + item + ")", Blockly.Ruby.ORDER_HIGH];
+    return [list + ".rindex(" + item + ").to_i", Blockly.Ruby.ORDER_HIGH];
   }
 };
 
@@ -228,12 +228,7 @@ Blockly.Ruby['lists_split'] = function(block) {
     if (!input) {
       input = '\'\'';
     }
-    functionName = Blockly.Ruby.provideFunction_(
-        'list_string_split',
-        ['def ' + Blockly.Ruby.FUNCTION_NAME_PLACEHOLDER_ +
-            '(input, delim)',
-         '  return input.split(delim)',
-         'end']);
+    return [input + '.split(' + delimiter + ')', Blockly.Ruby.ORDER_HIGH];
   } else if (mode == 'JOIN') {
     if (!input) {
       input = '[]';

@@ -169,48 +169,25 @@ Blockly.Ruby['math_on_list'] = function(block) {
       Blockly.Ruby.ORDER_NONE) || '[]';
   var functionName;
 
-  function provideSum() {
-    return Blockly.Ruby.provideFunction_(
-        'math_sum',
-        ['def ' + Blockly.Ruby.FUNCTION_NAME_PLACEHOLDER_ + '(arr)',
-         '  result = 0',
-         '  arr.each do |v|',
-         '    result +=  v',
-         '  end',
-         '  return result',
-         'end']);
-  }
-
   switch (func) {
     case 'SUM':
-      functionName = provideSum();
+      return ['(' + list + ').inject(:+)', Blockly.Ruby.ORDER_HIGH];
       break;
 
     case 'MIN':
-      functionName = Blockly.Ruby.provideFunction_(
-          'math_min',
-          ['def ' + Blockly.Ruby.FUNCTION_NAME_PLACEHOLDER_ + '(arr)',
-           '  return arr.min',
-           'end']);
+      return ['(' + list + ').min', Blockly.Ruby.ORDER_HIGH];
       break;
 
     case 'AVERAGE':
       functionName = Blockly.Ruby.provideFunction_(
           'math_average',
           ['def ' + Blockly.Ruby.FUNCTION_NAME_PLACEHOLDER_ + '(arr)',
-           '  if arr.length == 0 then',
-           '    return 0',
-           '  end',
-           '  return ' + provideSum() + '(arr) / arr.length',
+           '  return ' + '(arr).inject(:+) / arr.length',
            'end']);
       break;
 
     case 'MAX':
-      functionName = Blockly.Ruby.provideFunction_(
-          'math_max',
-          ['def ' + Blockly.Ruby.FUNCTION_NAME_PLACEHOLDER_ + '(arr)',
-           '  return arr.max',
-           'end']);
+      return ['(' + list + ').max', Blockly.Ruby.ORDER_HIGH];
       break;
 
     case 'MEDIAN':
@@ -250,15 +227,7 @@ Blockly.Ruby['math_on_list'] = function(block) {
       break;
 
     case 'RANDOM':
-      functionName = Blockly.Ruby.provideFunction_(
-          'math_random_list',
-          ['def ' + Blockly.Ruby.FUNCTION_NAME_PLACEHOLDER_ + '(arr)',
-           '  len = arr.length',
-           '  if len == 0 then',
-           '    return nil',
-           '  end',
-           '  return arr[rand(len)]',
-           'end']);
+      return ['(' + list + ').sample', Blockly.Ruby.ORDER_HIGH];
       break;
 
     default:

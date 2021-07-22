@@ -325,12 +325,12 @@ Blockly.Ruby.state_init_variable = function(block) {
 Blockly.Ruby.state_set_variable = function(block) {
   var text_name = block.getFieldValue('name');
   var value = Blockly.Ruby.valueToCode(block, 'value', Blockly.Ruby.ORDER_ATOMIC);
-  return "$state." + text_name + " = " + value + "\n";
+  return "$state" + (text_name != "" ? ("." + text_name) : "") + " = " + value + "\n";
 };
 
 Blockly.Ruby.state_get_variable = function(block) {
   var text_name = block.getFieldValue('name');
-  return ["$state." + text_name, Blockly.Ruby.ORDER_ATOMIC];
+  return ["$state" + (text_name != "" ? ("." + text_name) : ""), Blockly.Ruby.ORDER_ATOMIC];
 };
 
 // Outputs
@@ -831,7 +831,7 @@ Blockly.Ruby.comment = function(block) {
 
 Blockly.Ruby.return = function(block) {
   var v = Blockly.Ruby.valueToCode(block, 'value', Blockly.Ruby.ORDER_ATOMIC);
-  return "return " + v + "\n";
+  return (v.length === 0) ? "return\n" : "return " + v + "\n";
 };
 
 Blockly.Ruby.require = function(block) {

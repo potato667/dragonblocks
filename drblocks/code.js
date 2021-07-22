@@ -333,6 +333,20 @@ Code.checkAllGeneratorFunctionsDefined = function(generator) {
  * Initialize Blockly.  Called on page load.
  */
 Code.init = function() {
+  if (window.localStorage.drblocks_autosave_enabled != "true" && window.localStorage.drblocks_autosave_enabled != "false") {
+    window.localStorage.drblocks_autosave_enabled = false;
+    window.localStorage.drblocks_autosaved_xml = "";
+  } else {
+    if (window.localStorage.drblocks_autosave_enabled === "true") {
+      document.getElementById("autosave_checkbox").checked = true;
+    } else if (window.localStorage.drblocks_autosave_enabled === "false") {
+      document.getElementById("autosave_checkbox").checked = false;
+    } else {
+      window.localStorage.drblocks_autosave_enabled = false;
+      window.localStorage.drblocks_autosaved_xml = "";
+    }
+  }
+  
   //Code.initLanguage();
   document.title += ' ' + MSG['title'];
   document.getElementById('title').textContent = MSG['title'];
@@ -448,21 +462,46 @@ Code.init = function() {
   window.setTimeout(Code.importPrettify, 1);
   
   // #CODE
-  var dom = Blockly.Xml.textToDom(`
-    <xml xmlns="https://developers.google.com/blockly/xml">
-      <variables>
-        <variable id="hw5(m7RjJ.0{5WTG*~o!">args</variable>
-      </variables>
-      <block type="procedures_defnoreturn" id="+p*D(ro8{uV[t;V.gtql" x="38" y="38">
-        <mutation>
-          <arg name="args" varid="hw5(m7RjJ.0{5WTG*~o!"></arg>
-        </mutation>
-        <field name="NAME">tick</field>
-        <comment pinned="false" h="80" w="160">Game Loop!</comment>
-      </block>
-  </xml>`);
+  var default_drblocks_xml = `
+  <xml xmlns="https://developers.google.com/blockly/xml">
+    <variables>
+      <variable id="hw5(m7RjJ.0{5WTG*~o!">args</variable>
+    </variables>
+    <block type="procedures_defnoreturn" id="+p*D(ro8{uV[t;V.gtql" x="38" y="38">
+      <mutation>
+        <arg name="args" varid="hw5(m7RjJ.0{5WTG*~o!"></arg>
+      </mutation>
+      <field name="NAME">tick</field>
+      <comment pinned="false" h="80" w="160">Game Loop!</comment>
+    </block>
+  </xml>`;
+  
+  var dom;
+  
+  if (window.localStorage.drblocks_autosaved_xml.length === 0) {
+    dom = Blockly.Xml.textToDom(default_drblocks_xml);
+  } else {
+    if (window.localStorage.drblocks_autosave_enabled === "true") {
+      dom = Blockly.Xml.textToDom(window.localStorage.drblocks_autosaved_xml);
+    } else {
+      dom = Blockly.Xml.textToDom(default_drblocks_xml);
+    }
+  }
+  
   Blockly.mainWorkspace.clear();
   Blockly.Xml.domToWorkspace(dom, Blockly.mainWorkspace);
+  
+  var drblocks_autosave_interval;
+  
+  if (window.localStorage.drblocks_autosave_enabled === "true") {
+    drblocks_autosave_interval = window.setInterval(function() {
+      window.localStorage.drblocks_autosaved_xml = Blockly.Xml.domToPrettyText(Blockly.Xml.workspaceToDom(Code.workspace));
+    }, 60 * 1000);
+  } else {
+    if (drblocks_autosave_interval) {
+      window.clearInterval(drblocks_autosave_interval);
+    }
+  }
 };
 
 /**
@@ -599,4 +638,14 @@ function import_xml()  {
       }
     });
   });
+}
+
+function toggle_autosave_settings() {
+  var checkbox = document.getElementById("autosave_checkbox");
+  window.localStorage.drblocks_autosave_enabled = checkbox.checked;
+  
+  // We just remove autosaved XML, Not hard...
+  if (window.localStorage.drblocks_autosave_enabled === "false") {
+    window.localStorage.drblocks_autosaved_xml = "";
+  }
 }

@@ -64,23 +64,10 @@ Blockly.Ruby['text_indexOf'] = function(block) {
   var text = Blockly.Ruby.valueToCode(block, 'VALUE',
       Blockly.Ruby.ORDER_NONE) || '\'\'';
   if (block.getFieldValue('END') == 'FIRST') {
-    var functionName = Blockly.Ruby.provideFunction_(
-        'firstIndexOf',
-        ['def ' + Blockly.Ruby.FUNCTION_NAME_PLACEHOLDER_ +
-             '(str, substr) ',
-         '  return (str.index(substr) == nil) ? 0 : i',
-         'end']);
+    return ["(" + text + ").index(" + substring + ").to_i", Blockly.Ruby.ORDER_HIGH];
   } else {
-    var functionName = Blockly.Ruby.provideFunction_(
-        'lastIndexOf',
-        ['def ' + Blockly.Ruby.FUNCTION_NAME_PLACEHOLDER_ +
-             '(str, substr)',
-         '  i = (str).rindex(substr)',
-         '  return (i == nil) ? 0 : i',
-         'end']);
+    return ["(" + text + ").rindex(" + substring + ").to_i", Blockly.Ruby.ORDER_HIGH];
   }
-  var code = functionName + '(' + text + ', ' + substring + ')';
-  return [code, Blockly.Ruby.ORDER_HIGH];
 };
 
 Blockly.Ruby['text_charAt'] = function(block) {
@@ -92,12 +79,7 @@ Blockly.Ruby['text_charAt'] = function(block) {
       Blockly.Ruby.ORDER_NONE) || '\'\'';
   var code;
   if (where == 'RANDOM') {
-    var def = Blockly.Ruby.provideFunction_(
-        'text_random_letter',
-        ['def ' + Blockly.Ruby.FUNCTION_NAME_PLACEHOLDER_ + '(str)',
-         '  return str[rand(str.length)]',
-         'end']);
-    code = functionName + '(' + text + ')';
+    code = '(' + text + ').chars.sample';
   } else {
     if (where == 'FIRST') {
       var start = '0';

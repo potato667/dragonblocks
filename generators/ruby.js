@@ -15,11 +15,11 @@ Blockly.Ruby.addReservedWords(
 Blockly.Ruby.ORDER_ATOMIC = 0;          // literals
 Blockly.Ruby.ORDER_HIGH = 1;            // Function calls, Arrays
 Blockly.Ruby.ORDER_EXPONENTIATION = 2;  // **
-Blockly.Ruby.ORDER_UNARY = 3;           // ! # - ~
+Blockly.Ruby.ORDER_UNARY = 3;           // ! - ~
 Blockly.Ruby.ORDER_MULTIPLICATIVE = 4;  // * / %
 Blockly.Ruby.ORDER_ADDITIVE = 5;        // + -
 Blockly.Ruby.ORDER_CONCATENATION = 6;   // #{}
-Blockly.Ruby.ORDER_RELATIONAL = 7;      // < > <=  >= ~= ==
+Blockly.Ruby.ORDER_RELATIONAL = 7;      // < > <=  >= != ==
 Blockly.Ruby.ORDER_AND = 8;             // &&
 Blockly.Ruby.ORDER_OR = 9;              // ||
 Blockly.Ruby.ORDER_NONE = 99;
