@@ -3422,11 +3422,13 @@ Blockly.defineBlocksWithJsonArray([
     },      
     {
       "type": "input_value",
-      "name": "var"
+      "name": "var",
+      "align": "RIGHT"
     },
     {
       "type": "input_value",
       "name": "base",
+      "align": "RIGHT",
       "check": "Number"
     }
   ],
@@ -3444,11 +3446,13 @@ Blockly.defineBlocksWithJsonArray([
     },      
     {
       "type": "input_value",
-      "name": "var"
+      "name": "var",
+      "align": "RIGHT" 
     },
     {
       "type": "input_value",
       "name": "base",
+      "align": "RIGHT",
       "check": "Number"
     }
   ],
