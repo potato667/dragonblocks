@@ -491,6 +491,7 @@ Code.init = function() {
   Blockly.mainWorkspace.clear();
   Blockly.Xml.domToWorkspace(dom, Blockly.mainWorkspace);
   
+  // Interval for Autosave
   var drblocks_autosave_interval;
   
   if (window.localStorage.drblocks_autosave_enabled === "true") {
