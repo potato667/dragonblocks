@@ -213,6 +213,16 @@ Blockly.Ruby.numeric_frame_index = function(block) {
   return [variable + ".frame_index(" + number_of_sprites + "," + frames_each_sprite + "," + does_sprite_loop + ")", Blockly.Ruby.ORDER_ATOMIC];
 };
 
+Blockly.Ruby.numeric_half = function(block) {
+  var variable = Blockly.Ruby.valueToCode(block, 'variable', Blockly.Ruby.ORDER_ATOMIC);
+  return [variable + ".half", Blockly.Ruby.ORDER_ATOMIC];
+};
+
+Blockly.Ruby.numeric_from_top = function(block) {
+  var variable = Blockly.Ruby.valueToCode(block, 'variable', Blockly.Ruby.ORDER_ATOMIC);
+  return [variable + ".from_top", Blockly.Ruby.ORDER_ATOMIC];
+};
+
 Blockly.Ruby.numeric_created = function(block) {
   var variable = Blockly.Ruby.valueToCode(block, 'variable', Blockly.Ruby.ORDER_ATOMIC);
   return [variable + ".created?", Blockly.Ruby.ORDER_ATOMIC];

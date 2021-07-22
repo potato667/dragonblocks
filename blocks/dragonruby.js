@@ -627,6 +627,36 @@ Blockly.defineBlocksWithJsonArray([
   "helpUrl": "http://docs.dragonruby.org/#--docs---numeric#frame_index-"
 },
 {
+  "type": "numeric_half",
+  "message0": "Half of %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "variable",
+      "check": "Number"
+    }
+  ],
+  "output": "Number",
+  "colour": 0,
+  "tooltip": "Returns half of number.",
+  "helpUrl": ""
+},
+{
+  "type": "numeric_from_top",
+  "message0": "Top-Left Y %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "variable",
+      "check": "Number"
+    }
+  ],
+  "output": "Number",
+  "colour": 0,
+  "tooltip": "Returns Y position from top-left.",
+  "helpUrl": ""
+},
+{
   "type": "numeric_seconds",
   "message0": "%1 Seconds",
   "args0": [
@@ -1310,7 +1340,6 @@ Blockly.defineBlocksWithJsonArray([
     {
       "type": "input_value",
       "name": "text",
-      "check": "String",
       "align": "RIGHT"
     },
     {
@@ -1619,7 +1648,6 @@ Blockly.defineBlocksWithJsonArray([
     {
       "type": "input_value",
       "name": "text",
-      "check": "String",
       "align": "RIGHT"
     },
     {
