@@ -2,6 +2,8 @@
 
 [Blockly](https://developers.google.com/blockly)-based environment made for [DragonRuby Game Toolkit](https://dragonruby.org/toolkit/game), Based on Blockly version `blockly-6.20210701.0` by Google.
 
+You can join the discord server here : http://discord.dragonruby.org/ (you will find the DragonBlocks Channel in --> COMMUNITY --> oss-blocky).
+
 <img src="dragonblocks.png">
 
 ## Usage
