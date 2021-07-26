@@ -14,7 +14,7 @@
 
 3. Export to Ruby: Exports the Blocks to Ruby file.
 
-> NOTICE: Link and Run button deleted from Blockly, Also non-English languages were deleted but if you want to add your language translate the blocks then open isssue/pull request for that.
+> NOTICE: Link and Run button deleted from Blockly, Also non-English languages were deleted but if you want to add your language translate the blocks then open issue/pull request for that.
 
 #### Blocks
 
