@@ -84,4 +84,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-> License of Blockly can be found in `BLOCKLY_LICENSE.txt` and Blockly licensed under Apache License.
+>--> Note : License of Blockly can be found in `BLOCKLY_LICENSE.txt` and Blockly licensed under Apache License.
