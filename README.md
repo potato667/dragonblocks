@@ -49,6 +49,15 @@ OK the way i made this is really weird, I removed all everything Node.js and Goo
 > JavaScript compression done via [JSCompress](https://jscompress.com) site.
 
 ## How to Contribute?
+--> To Pull Request/Issue
+Step 1 : Press on the pencil icon in the top right corner.
+Step 2 : Edit information that you think needs to be improved.
+Step 3 : Once you finish what you want to Fix/Edit scroll to the buttom of the site and click the green button that says propose changes (You can add an optional extended description to explain why did you edit this).
+Step 4 : Wait for Rabia Alhaffar the owner of DragonBlocks to review your changes.
+
+Done!
+
+NOTE : Your changes might be accepted or declined (It all comes down to Rabia Alhaffar's opinion about it).
 
 1. Pull Request/Issue to optimize generated Ruby/DragonRuby code.
 2. Pull Request/Issue for new Blocks.
