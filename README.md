@@ -12,7 +12,7 @@
 
 2. Import from XML: Loads Blocks from XML file.
 
-3. Export to Ruby: Exports the Blocks to Ruby file.
+3. Export to Ruby: Exports the Blocks to Ruby file (Which you can save in the directory you want your code in).
 
 > NOTICE: Link and Run button deleted from Blockly, Also non-English languages were deleted but if you want to add your language translate the blocks then open isssue/pull request for that.
 
