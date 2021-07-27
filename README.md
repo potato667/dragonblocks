@@ -12,9 +12,9 @@
 
 2. Import from XML: Loads Blocks from XML file.
 
-3. Export to Ruby: Exports the Blocks to Ruby file.
+3. Export to Ruby: Exports the Blocks to Ruby file (Which you can save in the directory you want your code in).
 
-> NOTICE: Link and Run button deleted from Blockly, Also non-English languages were deleted but if you want to add your language translate the blocks then open isssue/pull request for that.
+> NOTICE: Link and Run button deleted from Blockly, Also non-English languages were deleted but if you want to add your language translate the blocks then open issue/pull request for that.
 
 #### Blocks
 
@@ -55,6 +55,10 @@ OK the way i made this is really weird, I removed all everything Node.js and Goo
 3. Pull Request/Issue for bug fixes.
 4. Pull Request/Issue to make the project much better and to be more-usable by Beginners.
 5. Pull Request/Issue to make naming of Blocks more simple, Or to fix the naming.
+
+## Discord
+
+You can join the Discord channel from [DragonRuby Discord Server](https://discord.dragonruby.org), Then in `COMMUNITY` section the channel named `oss-blocky` XD
 
 ## License
 
